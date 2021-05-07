@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rydskogen-Hål-4-724x1024.png-8d8d012d4f6d53020a0289db569ce9d0.stex"
+path="res://.import/map13.png-304842e5412a6d8bb6d82786a007b0d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Minimap/Rydskogen-Hål-4-724x1024.png"
-dest_files=[ "res://.import/Rydskogen-Hål-4-724x1024.png-8d8d012d4f6d53020a0289db569ce9d0.stex" ]
+source_file="res://Minimap/map13.png"
+dest_files=[ "res://.import/map13.png-304842e5412a6d8bb6d82786a007b0d7.stex" ]
 
 [params]
 
