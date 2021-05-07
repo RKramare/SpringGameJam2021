@@ -24,6 +24,3 @@ use_collision = true
 width = 246.096
 height = 0.325112
 depth = 14.1968
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -4.10107e-08, 0.346052, -0.938215, 1.51264e-08, 0.938215, 0.346052, 1, 0, -4.37114e-08, -12.7929, 1.68183, 0 )
