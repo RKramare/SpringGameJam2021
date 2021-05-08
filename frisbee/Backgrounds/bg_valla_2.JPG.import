@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DSC_0637.JPG-c3a1652f301e136d54e28f41e7a464e6.stex"
+path="res://.import/bg_valla_2.JPG-ad5047e1100ea9a4abfa73d83dfe25c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DSC_0637.JPG"
-dest_files=[ "res://.import/DSC_0637.JPG-c3a1652f301e136d54e28f41e7a464e6.stex" ]
+source_file="res://Backgrounds/bg_valla_2.JPG"
+dest_files=[ "res://.import/bg_valla_2.JPG-ad5047e1100ea9a4abfa73d83dfe25c1.stex" ]
 
 [params]
 

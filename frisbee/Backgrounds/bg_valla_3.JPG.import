@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/DSC_0638.JPG-33711841d16d64d5e969770baed67690.s3tc.stex"
-path.etc="res://.import/DSC_0638.JPG-33711841d16d64d5e969770baed67690.etc.stex"
+path.s3tc="res://.import/bg_valla_3.JPG-f172c23b0f3c481b006e1d9939f437d3.s3tc.stex"
+path.etc="res://.import/bg_valla_3.JPG-f172c23b0f3c481b006e1d9939f437d3.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://DSC_0638.JPG"
-dest_files=[ "res://.import/DSC_0638.JPG-33711841d16d64d5e969770baed67690.s3tc.stex", "res://.import/DSC_0638.JPG-33711841d16d64d5e969770baed67690.etc.stex" ]
+source_file="res://Backgrounds/bg_valla_3.JPG"
+dest_files=[ "res://.import/bg_valla_3.JPG-f172c23b0f3c481b006e1d9939f437d3.s3tc.stex", "res://.import/bg_valla_3.JPG-f172c23b0f3c481b006e1d9939f437d3.etc.stex" ]
 
 [params]
 
