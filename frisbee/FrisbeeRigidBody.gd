@@ -6,7 +6,7 @@ extends RigidBody
 # var b = "text"
 
 var thrown = false
-var impulse_force = 35
+var impulse_force = 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,25 +24,29 @@ func _physics_process(delta):
 		
 		vel_vec.y = 0
 		
-		var power = self.linear_velocity.length() / impulse_force
+		var power = vel_vec.length() / impulse_force
+		
 		var vec = Vector3(0,0.5,0)
 		vec = vec.rotated(Vector3(1,0,0), rotation.x)
+		vec = vec.rotated(Vector3(0,1,0), rotation.y)
 		vec = vec.rotated(Vector3(0,0,1), rotation.z)
 		
-		var off_vec = Vector3(0.01, 0, 0)
-		off_vec = off_vec.rotated(Vector3(0,1,0), rotation.y)
+		var off_vec = self.linear_velocity.normalized()/impulse_force*0.1
 		
-		vec.y = vec.y/2
+		vec.y = vec.y/3
 		vec = vec*power
 		self.apply_impulse(off_vec, vec)
-		self.apply_impulse(off_vec, Vector3(0,-0.08 * power * power,0))
 	
 
 func _input(event):
 	if (event.is_action_released("SHOOT")):
-		self.apply_impulse(Vector3(0,0,0), Vector3(impulse_force,0,0))
+		self.apply_impulse(Vector3(0,0,0), Vector3(impulse_force,impulse_force/10,0))
 		gravity_scale = 1
 		thrown = true
+	if (event.is_action("LEFT")):
+		rotation.x = rotation.x - 0.03
+	if (event.is_action("RIGTH")):
+		rotation.x = rotation.x + 0.03
 	if (event.is_action_released("RESET")):
 		get_tree().reload_current_scene()
 		thrown = false

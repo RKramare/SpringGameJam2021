@@ -4,7 +4,7 @@
 [ext_resource path="res://RasmusInTheGame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MiniMap.tscn" type="PackedScene" id=3]
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial2" type="Spatial"]
 
 [node name="Spatial2" parent="." instance=ExtResource( 2 )]
 transform = Transform( -6.55671e-07, 0, -1, 0, 15, 0, 15, 0, -4.37114e-08, 232.072, 12.7831, 17.4793 )
@@ -13,6 +13,7 @@ transform = Transform( -6.55671e-07, 0, -1, 0, 15, 0, 15, 0, -4.37114e-08, 232.0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.08874, 0.611559, 0 )
+fov = 82.0
 far = 5000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
