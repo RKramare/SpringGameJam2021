@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Backgrounds/bg_valla_4.JPG" type="Texture" id=1]
+[ext_resource path="res://Maps/map_10/map_10_0.JPG" type="Texture" id=1]
 [ext_resource path="res://bgControl.gd" type="Script" id=2]
 
 [sub_resource type="Environment" id=1]
