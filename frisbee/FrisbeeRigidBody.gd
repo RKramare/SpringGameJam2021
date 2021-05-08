@@ -69,6 +69,8 @@ func _input(event):
 		if event.is_pressed():
 			start = event.position
 			start_time = elapsed_time
+			print(event.position)
+			
 		elif thrown == false:
 			direction = event.position - start
 			speed = (direction.length())/(elapsed_time - start_time)
@@ -86,6 +88,11 @@ func _input(event):
 			self.apply_impulse(Vector3(0,0,0), dir)
 			gravity_scale = 1
 			thrown = true
+			
+	elif event is InputEventMouseMotion:
+		if (event.get_pressure() > 0) and thrown == false:
+			print(translation)
+			translation = Vector3(event.position[0], event.position[1], 0)
 			
 
 func _process(delta):
