@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main Menu.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Control"]
@@ -11,5 +10,3 @@ __meta__ = {
 }
 
 [node name="Main Menu" parent="." instance=ExtResource( 2 )]
-
-[node name="World" parent="." instance=ExtResource( 1 )]
