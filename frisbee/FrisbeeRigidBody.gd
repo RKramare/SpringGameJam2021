@@ -58,9 +58,11 @@ func _input(event):
 		thrown = true
 		
 	elif (event.is_action("LEFT")):
+		self.get_parent().get_parent().get_node("Maps").get_node("map10").get_node("map10fspyPart2").make_current()
 		rotation.x = rotation.x - 0.03
 		
 	elif (event.is_action("RIGTH")):
+		self.get_parent().get_parent().get_node("Maps").get_node("map10").get_node("map10fspy").make_current()
 		rotation.x = rotation.x + 0.03
 		print(rotation.x)
 		
@@ -104,3 +106,8 @@ func _process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+##func _on_FrisbeeRigidBody_body_entered(body):
+#	if body.get_name() == "map10part2":
+#		self.get_parent().get_node("res://")

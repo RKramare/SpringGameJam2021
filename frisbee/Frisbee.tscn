@@ -4,7 +4,8 @@
 [ext_resource path="res://frisbee.dae" type="PackedScene" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
-friction = 0.15
+bounce = 0.5
+absorbent = true
 
 [sub_resource type="CylinderShape" id=2]
 height = 0.184559
@@ -32,3 +33,5 @@ visible = false
 width = 246.096
 height = 0.325112
 depth = 183.828
+
+[connection signal="body_entered" from="FrisbeeRigidBody" to="FrisbeeRigidBody" method="_on_FrisbeeRigidBody_body_entered"]

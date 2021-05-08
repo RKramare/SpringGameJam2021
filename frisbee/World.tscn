@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MiniMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Maps.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Frisbee.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Goal.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Spatial"]
 
 [node name="Frisbee" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275085, 1.1065, 0 )
 
-[node name="Goal" parent="." instance=ExtResource( 4 )]
+[node name="Frisbee2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8763, -3.84335, 0 )
 
 [node name="Maps" parent="." instance=ExtResource( 2 )]
 
