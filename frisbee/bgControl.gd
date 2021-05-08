@@ -7,5 +7,5 @@ func _ready():
 	var viewportHeight = get_viewport().size.y
 	var scale = viewportWidth / bg.texture.get_size().x
 
-	bg.set_position(Vector2(viewportWidth/2, viewportHeight/2))
+	bg.set_position(Vector2(viewportWidth/2, viewportHeight/2-50))
 	bg.set_scale(Vector2(scale, scale))

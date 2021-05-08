@@ -6,7 +6,7 @@ extends RigidBody
 # var b = "text"
 
 var thrown = false
-var impulse_force = 80
+var impulse_force = 20
 
 # Mouse logic variables
 var elapsed_time = 0    
@@ -33,24 +33,27 @@ func _physics_process(delta):
 		
 		var power = 0.1
 		if (impulse_force > 0):
-			power = vel_vec.length() / impulse_force
+			power = sqrt(vel_vec.length() / impulse_force)
 		
 		
-		var vec = Vector3(0,0.5,0)
+		var vec = Vector3(0,0.4,0)
 		vec = vec.rotated(Vector3(1,0,0), rotation.x)
 		vec = vec.rotated(Vector3(0,1,0), rotation.y)
 		vec = vec.rotated(Vector3(0,0,1), rotation.z)
 		
-		var off_vec = self.linear_velocity.normalized()/impulse_force*0.1
+		var off_vec = self.linear_velocity.normalized()/impulse_force*0.00001
 		
-		vec.y = vec.y/3
+		vec.y = vec.y/2
 		vec = vec*power
 		self.apply_impulse(off_vec, vec)
 	
 
 func _input(event):
 	if (event.is_action_released("SHOOT")):
-		self.apply_impulse(Vector3(0,0,0), Vector3(impulse_force,impulse_force/10,0))
+		rotation.z = -0.1
+		var test = Vector3(impulse_force,impulse_force/-10,0)
+		#test = test.rotated(Vector3(0,1,0), 0.35)
+		self.apply_impulse(Vector3(0,0,0), test)
 		gravity_scale = 1
 		thrown = true
 		

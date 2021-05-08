@@ -8,6 +8,7 @@
 [node name="World" type="Spatial"]
 
 [node name="Frisbee" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275085, 1.1065, 0 )
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 
