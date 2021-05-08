@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Test.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Frisbee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RasmusInTheGame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MiniMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=4]
@@ -9,7 +9,6 @@
 
 [node name="Spatial2" parent="." instance=ExtResource( 2 )]
 transform = Transform( -6.55671e-07, 0, -1, 0, 15, 0, 15, 0, -4.37114e-08, 232.072, 12.7831, 17.4793 )
-visible = false
 
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
 
