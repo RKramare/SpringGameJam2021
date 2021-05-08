@@ -10,6 +10,27 @@ __meta__ = {
 }
 
 [node name="map_big_4" type="Sprite" parent="."]
+modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
 position = Vector2( 514.569, 335.468 )
 scale = Vector2( 0.254978, 0.254978 )
 texture = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = -0.014
+anchor_bottom = -0.014
+margin_left = 507.197
+margin_top = 135.456
+margin_right = 575.197
+margin_bottom = 174.456
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 39.0
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_right = 83.0
+margin_bottom = 20.0
+text = "Start Game"

@@ -89,10 +89,10 @@ func _input(event):
 			gravity_scale = 1
 			thrown = true
 			
-	elif event is InputEventMouseMotion:
-		if (event.get_pressure() > 0) and thrown == false:
-			print(translation)
-			translation = Vector3(event.position[0], event.position[1], 0)
+#	elif event is InputEventMouseMotion:
+#		if (event.get_pressure() > 0) and thrown == false:
+#			print(translation)
+#			translation = Vector3(event.position[0], event.position[1], 0)
 			
 
 func _process(delta):
