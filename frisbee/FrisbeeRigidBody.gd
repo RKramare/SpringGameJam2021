@@ -8,6 +8,13 @@ extends RigidBody
 var thrown = false
 var impulse_force = 80
 
+# Mouse logic variables
+var elapsed_time = 0    
+var start
+var speed
+var start_time
+var direction
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process_input(true);
@@ -43,13 +50,38 @@ func _input(event):
 		self.apply_impulse(Vector3(0,0,0), Vector3(impulse_force,impulse_force/10,0))
 		gravity_scale = 1
 		thrown = true
-	if (event.is_action("LEFT")):
+		
+	elif (event.is_action("LEFT")):
 		rotation.x = rotation.x - 0.03
-	if (event.is_action("RIGTH")):
+		
+	elif (event.is_action("RIGTH")):
 		rotation.x = rotation.x + 0.03
-	if (event.is_action_released("RESET")):
+		print(rotation.x)
+		
+	elif (event.is_action_released("RESET")):
 		get_tree().reload_current_scene()
 		thrown = false
+		
+	elif event is InputEventMouseButton:
+		if event.is_pressed():
+			start = event.position
+			start_time = elapsed_time
+		else:
+			direction = event.position - start
+			speed = (direction.length())/(elapsed_time - start_time)
+			direction = direction.normalized()
+			rotation.x = direction[0]
+			impulse_force = speed/30.0
+			
+			
+			self.apply_impulse(Vector3(0,0,0), Vector3(impulse_force, impulse_force/10,0))
+			gravity_scale = 1
+			thrown = true
+			print(direction, speed)
+			
+
+func _process(delta):
+	elapsed_time += delta
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
