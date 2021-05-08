@@ -31,7 +31,10 @@ func _physics_process(delta):
 		
 		vel_vec.y = 0
 		
-		var power = vel_vec.length() / impulse_force
+		var power = 0.1
+		if (impulse_force > 0):
+			power = vel_vec.length() / impulse_force
+		
 		
 		var vec = Vector3(0,0.5,0)
 		vec = vec.rotated(Vector3(1,0,0), rotation.x)
@@ -66,18 +69,23 @@ func _input(event):
 		if event.is_pressed():
 			start = event.position
 			start_time = elapsed_time
-		else:
+		elif thrown == false:
 			direction = event.position - start
 			speed = (direction.length())/(elapsed_time - start_time)
 			direction = direction.normalized()
-			rotation.x = direction[0]
-			impulse_force = speed/30.0
+			rotation.x = direction[0]*0.8
 			
+			if speed < 60:
+				speed = 0
+		
+			impulse_force = speed/100.0
 			
-			self.apply_impulse(Vector3(0,0,0), Vector3(impulse_force, impulse_force/10,0))
+			var dir = Vector3(impulse_force, impulse_force/10,0)
+			dir = dir.rotated(Vector3(0, 1, 0), -direction[0]*0.7)
+			
+			self.apply_impulse(Vector3(0,0,0), dir)
 			gravity_scale = 1
 			thrown = true
-			print(direction, speed)
 			
 
 func _process(delta):
