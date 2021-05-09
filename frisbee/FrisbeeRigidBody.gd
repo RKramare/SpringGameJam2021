@@ -6,7 +6,7 @@ extends RigidBody
 # var b = "text"
 
 var thrown = false
-var max_force = 15
+var max_force = 20
 var impulse_force = max_force
 
 # Mouse logic variables
@@ -85,6 +85,8 @@ func _input(event):
 			
 			var dir = Vector3(impulse_force, impulse_force/10,0)
 			dir = dir.rotated(Vector3(0, 1, 0), -direction[0]*0.7)
+			if self.get_parent().get_parent().get_name() == "map10_3":
+				dir = dir.rotated(Vector3(0, 0, 1), 0.2)
 			
 			self.apply_impulse(Vector3(0,0,0), dir)
 			gravity_scale = 1

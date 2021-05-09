@@ -19,8 +19,8 @@ height = 2.21106
 albedo_color = Color( 0.423529, 0.470588, 0.870588, 1 )
 
 [sub_resource type="CylinderShape" id=4]
-radius = 0.273307
-height = 0.229869
+radius = 0.177302
+height = 0.149977
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 2.64344, 15.4947, 22.8805 )
@@ -64,9 +64,10 @@ far = 100000.0
 transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -37.6059, 63.8154, -132.386 )
 
 [node name="GoalArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0128216, -0.127487, -5.60448e-10 )
 
 [node name="CollisionShape" type="CollisionShape" parent="GoalArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558996, -2.8962, -4.92755 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558996, -2.96157, -4.92755 )
 shape = SubResource( 4 )
 
 [node name="OutOfMapArea" type="Area" parent="."]
@@ -102,8 +103,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.823e-10, -3.51692, -0.00645
 stream = ExtResource( 6 )
 volume_db = 22.061
 
-[node name="basket" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554916, -2.73774, -4.92102 )
+[node name="basket2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.542095, -2.86523, -4.92102 )
+visible = false
 
 [connection signal="body_entered" from="GoalArea" to="." method="_on_GoalArea_body_entered"]
 [connection signal="body_entered" from="OutOfMapArea" to="." method="_on_OutOfMapArea_body_entered"]
