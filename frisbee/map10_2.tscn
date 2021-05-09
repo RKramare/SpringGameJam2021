@@ -1,3 +1,178 @@
-[gd_scene format=2]
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bgControl.gd" type="Script" id=2]
+[ext_resource path="res://Maps/map_10/map_10_3.JPG" type="Texture" id=3]
+[ext_resource path="res://map10_2.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.465715, 1, 0.252273 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.46548, 1, 0.182456 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.465867, 1, 0.202704 )
+
+[sub_resource type="CylinderShape" id=4]
+radius = 1.01563
+height = 2.21106
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.423529, 0.470588, 0.870588, 1 )
+
+[sub_resource type="CylinderShape" id=6]
+radius = 1.03144
+height = 5.59706
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 7.17667, 0.632809, 3.40084 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 7.04037, 0.646018, 3.78402 )
+
+[sub_resource type="CylinderShape" id=9]
+radius = 0.947838
+height = 5.81061
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 7.24376, 9.58552, 35.0726 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 2.64344, 15.4947, 22.8805 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 3.8156, 15.8283, 24.6317 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+ambient_light_color = Color( 1, 1, 1, 1 )
 
 [node name="map10_2" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, -1.58402e-15, 1.05398e-14, 0, 0.988894, 0.148621, -1.06581e-14, -0.148621, 0.988894, -2.01823e-17, 0.0574145, -0.0018936 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, 1.05879e-22, 8.13152e-20, 2.03288e-20, 0.995154, -1.9666, -1.0842e-19, 0.0983298, 19.9031, -1.47734e-21, -5.59957, -0.994914 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, -9.52912e-22, 1.0842e-19, 2.03288e-20, 0.999998, 0.0415418, -1.0842e-19, -0.00207703, 20, -1.32482e-13, -5.25226, -9.08006 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, 2.75286e-21, 5.42101e-19, -6.77626e-21, 0.922094, -46.4361, -3.79471e-19, 0.386969, 110.651, -3.25256e-19, 1.65875, -28.2656 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.37915, -1.11504e-21, 2.5411e-21, -1.32349e-21, 0.461192, -0.0494817, -5.92923e-21, 0.0650297, 0.350926, -6.3944, 5.49047, -32.8509 )
+shape = SubResource( 4 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape3"]
+height = 2.25291
+material = SubResource( 5 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.167707, -0.0440798, -0.000962753, 0.00538777, 1.33573, -0.0286148, 0.0012726, 0.153937, 0.24802, -4.88286, -0.153557, -11.8773 )
+shape = SubResource( 6 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape4"]
+transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+height = 5.72689
+
+[node name="CollisionShape10" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.124836, -0.0440798, -0.000748605, 0.0040105, 1.33573, -0.02225, 0.00094729, 0.153937, 0.192852, -6.77479, 0.0545556, -14.2249 )
+shape = SubResource( 6 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape10"]
+transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+height = 5.72689
+
+[node name="CollisionShape11" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.124836, -0.0440798, -0.000748605, 0.0040105, 1.33573, -0.02225, 0.00094729, 0.153937, 0.192852, 0.728799, 0.564002, -16.4968 )
+shape = SubResource( 6 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape11"]
+transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+height = 5.72689
+
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.154852, -0.0390472, -0.000962753, 0.00497476, 1.18323, -0.0286148, 0.00117505, 0.136361, 0.248019, 1.70773, -4.16697, -7.26618 )
+shape = SubResource( 8 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticBody/CollisionShape7"]
+width = 14.2702
+height = 1.18402
+depth = 7.47475
+
+[node name="CollisionShape9" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.106732, -0.0319745, -0.00103245, 0.00342887, 0.96891, -0.0306863, 0.000809907, 0.111662, 0.265974, -1.69674, -0.753207, -21.5811 )
+shape = SubResource( 10 )
+
+[node name="CSGBox" type="CSGBox" parent="StaticBody/CollisionShape9"]
+width = 14.2702
+height = 1.18402
+depth = 7.47475
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.167707, -0.0440798, -0.000962753, 0.00538777, 1.33573, -0.0286148, 0.0012726, 0.153937, 0.24802, 2.48029, -0.764119, -5.75775 )
+shape = SubResource( 6 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape6"]
+transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+height = 5.72689
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.167707, -0.0440798, -0.000962753, 0.00538777, 1.33573, -0.0286148, 0.0012726, 0.153937, 0.24802, -2.00179, 2.27005, -20.119 )
+shape = SubResource( 9 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape8"]
+transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+height = 5.72689
+
+[node name="map10fspy" type="Camera" parent="."]
+transform = Transform( 0.999243, -0.0119752, 0.0370273, 0.00779036, 0.993771, 0.111166, -0.0381279, -0.110794, 0.993112, -0.0599428, -3.48428, 1.61063 )
+current = true
+fov = 65.638
+near = 0.1
+far = 100000.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -37.6059, 63.8154, -132.386 )
+
+[node name="GoalArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="GoalArea"]
+transform = Transform( 0.993429, 0, 0.114452, 0, 1, 0, -0.114452, 0, 0.993429, -8.50441, 4.82123, -65.0313 )
+shape = SubResource( 13 )
+
+[node name="OutOfMapArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1959, 0, -21.0708 )
+
+[node name="CollisionShape" type="CollisionShape" parent="OutOfMapArea"]
+transform = Transform( 0.998633, 0, 0.0522662, 0, 1, 0, -0.0522662, 0, 0.998633, 2.09258, 0.849823, -0.11446 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="OutOfMapArea"]
+transform = Transform( 0.99038, 0, 0.138378, 0, 1, 0, -0.138378, 0, 0.99038, 23.9884, 0, 0 )
+shape = SubResource( 12 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 1 )]
+environment = SubResource( 3 )
+
+[node name="bgControl2" type="Control" parent="WorldEnvironment"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bgSprite" type="Sprite" parent="WorldEnvironment/bgControl2"]
+position = Vector2( 2020.44, 1511.47 )
+texture = ExtResource( 3 )
+
+[connection signal="body_entered" from="GoalArea" to="." method="_on_GoalArea_body_entered"]
+[connection signal="body_entered" from="OutOfMapArea" to="." method="_on_OutOfMapArea_body_entered"]

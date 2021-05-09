@@ -7,12 +7,10 @@
 [node name="World" type="Spatial"]
 
 [node name="Frisbee" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275085, 1.1065, 0 )
-
-[node name="Frisbee2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8763, -3.84335, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275085, -3.7728, 0 )
 
 [node name="Maps" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
