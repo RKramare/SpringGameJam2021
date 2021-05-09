@@ -6,7 +6,8 @@ extends RigidBody
 # var b = "text"
 
 var thrown = false
-var impulse_force = 20
+var max_force = 20
+var impulse_force = max_force
 
 # Mouse logic variables
 var elapsed_time = 0    
@@ -31,9 +32,7 @@ func _physics_process(delta):
 		
 		vel_vec.y = 0
 		
-		var power = 0.1
-		if (impulse_force > 0):
-			power = sqrt(vel_vec.length() / impulse_force)
+		var power = sqrt(vel_vec.length() / max_force)
 		
 		
 		var vec = Vector3(0,0.4,0)
