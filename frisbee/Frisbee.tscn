@@ -14,6 +14,8 @@ height = 0.184559
 
 [node name="FrisbeeRigidBody" type="RigidBody" parent="."]
 physics_material_override = SubResource( 1 )
+contacts_reported = 500
+contact_monitor = true
 script = ExtResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="FrisbeeRigidBody"]
@@ -26,5 +28,13 @@ transform = Transform( 0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="frisbee" parent="FrisbeeRigidBody" instance=ExtResource( 2 )]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108.699, -1.483, 0 )
+visible = false
+use_collision = true
+width = 246.096
+height = 0.325112
+depth = 183.828
 
 [connection signal="body_entered" from="FrisbeeRigidBody" to="FrisbeeRigidBody" method="_on_FrisbeeRigidBody_body_entered"]

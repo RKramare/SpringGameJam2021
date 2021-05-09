@@ -20,6 +20,7 @@ var direction
 func _ready():
 	set_process_input(true);
 	gravity_scale = 0
+	#connect("body_entered", self, "thud")
 	pass # Replace with function body.
 	
 func _physics_process(delta):
@@ -45,10 +46,12 @@ func _physics_process(delta):
 		vec.y = vec.y/2
 		vec = vec*power
 		self.apply_impulse(off_vec, vec)
+		
 	
 
 func _input(event):
 	if (event.is_action_released("SHOOT")):
+
 		rotation.z = -0.1
 		var test = Vector3(impulse_force,impulse_force/-10,0)
 		#test = test.rotated(Vector3(0,1,0), 0.35)
@@ -61,10 +64,13 @@ func _input(event):
 		thrown = false
 		
 	elif event is InputEventMouseButton:
-		if event.is_pressed():
+		if event.is_pressed() and thrown == false:
 			start = event.position
 			start_time = elapsed_time
-			print(event.position)
+			print("THUD")
+			var thud = self.get_parent().get_parent().get_node("thud")
+			thud.play()
+			yield(thud, "finished")
 			
 		elif thrown == false:
 			direction = event.position - start
@@ -87,6 +93,9 @@ func _input(event):
 
 func _process(delta):
 	elapsed_time += delta
+	
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
