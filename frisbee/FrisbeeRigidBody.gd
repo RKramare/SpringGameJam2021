@@ -59,7 +59,7 @@ func _input(event):
 		
 	elif (event.is_action_released("RESET")):
 		print("RESET")
-		var thud = self.get_parent().get_parent().get_node("Maps").get_node("map10_2").get_node("thud")
+		var thud = self.get_parent().get_parent().get_node("Maps").get_node("thud")
 		thud.play()
 		yield(thud, "finished")
 		get_tree().reload_current_scene()
