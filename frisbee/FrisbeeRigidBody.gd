@@ -46,6 +46,7 @@ func _physics_process(delta):
 		vec.y = vec.y/2
 		vec = vec*power
 		self.apply_impulse(off_vec, vec)
+		
 	
 
 func _input(event):
@@ -58,6 +59,10 @@ func _input(event):
 		thrown = true
 		
 	elif (event.is_action_released("RESET")):
+		print("RESET")
+		var thud = self.get_parent().get_parent().get_node("Maps").get_node("map10_2").get_node("thud")
+		thud.play()
+		yield(thud, "finished")
 		get_tree().reload_current_scene()
 		thrown = false
 		
@@ -65,7 +70,6 @@ func _input(event):
 		if event.is_pressed():
 			start = event.position
 			start_time = elapsed_time
-			print(event.position)
 			
 		elif thrown == false:
 			direction = event.position - start
@@ -88,6 +92,8 @@ func _input(event):
 
 func _process(delta):
 	elapsed_time += delta
+	if self.get_colliding_bodies().size() > 0:
+			print("HEJHEJ")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
