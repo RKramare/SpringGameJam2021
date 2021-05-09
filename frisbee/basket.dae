@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.90.1 commit date:2020-09-23, commit time:06:43, hash:3e85bb34d0d7</authoring_tool>
     </contributor>
-    <created>2021-05-09T16:31:57</created>
-    <modified>2021-05-09T16:31:57</modified>
+    <created>2021-05-09T17:10:19</created>
+    <modified>2021-05-09T17:10:19</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -75,7 +75,31 @@
       </extra>
     </light>
   </library_lights>
+  <library_effects>
+    <effect id="Material_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.004107811 0 0.8000001 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
   <library_images/>
+  <library_materials>
+    <material id="Material_001-material" name="Material.001">
+      <instance_effect url="#Material_001-effect"/>
+    </material>
+  </library_materials>
   <library_geometries>
     <geometry id="Cylinder-mesh" name="Cylinder">
       <mesh>
@@ -111,7 +135,7 @@
         <vertices id="Cylinder-mesh-vertices">
           <input semantic="POSITION" source="#Cylinder-mesh-positions"/>
         </vertices>
-        <triangles count="1148">
+        <triangles material="Material_001-material" count="1148">
           <input semantic="VERTEX" source="#Cylinder-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Cylinder-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#Cylinder-mesh-map-0" offset="2" set="0"/>
@@ -122,9 +146,17 @@
   </library_geometries>
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
-      <node id="Cylinder" name="Cylinder" type="NODE">
+      <node id="Cylinder-col" name="Cylinder-col" type="NODE">
         <matrix sid="transform">0.025 0 0 0 0 0.025 0 0 0 0 0.75 0 0 0 0 1</matrix>
-        <instance_geometry url="#Cylinder-mesh" name="Cylinder"/>
+        <instance_geometry url="#Cylinder-mesh" name="Cylinder-col">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material_001-material" target="#Material_001-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
       </node>
       <node id="Camera" name="Camera" type="NODE">
         <matrix sid="transform">0.6859207 -0.3240135 0.6515582 7.358891 0.7276763 0.3054208 -0.6141704 -6.925791 0 0.8953956 0.4452714 4.958309 0 0 0 1</matrix>
