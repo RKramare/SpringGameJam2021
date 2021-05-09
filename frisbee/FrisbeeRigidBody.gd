@@ -57,15 +57,6 @@ func _input(event):
 		gravity_scale = 1
 		thrown = true
 		
-	elif (event.is_action("LEFT")):
-		self.get_parent().get_parent().get_node("Maps").get_node("map10").get_node("map10fspyPart2").make_current()
-		rotation.x = rotation.x - 0.03
-		
-	elif (event.is_action("RIGTH")):
-		self.get_parent().get_parent().get_node("Maps").get_node("map10").get_node("map10fspy").make_current()
-		rotation.x = rotation.x + 0.03
-		print(rotation.x)
-		
 	elif (event.is_action_released("RESET")):
 		get_tree().reload_current_scene()
 		thrown = false
@@ -85,7 +76,7 @@ func _input(event):
 			if speed < 60:
 				speed = 0
 		
-			impulse_force = speed/100.0
+			impulse_force = speed/150.0
 			
 			var dir = Vector3(impulse_force, impulse_force/10,0)
 			dir = dir.rotated(Vector3(0, 1, 0), -direction[0]*0.7)
@@ -93,11 +84,6 @@ func _input(event):
 			self.apply_impulse(Vector3(0,0,0), dir)
 			gravity_scale = 1
 			thrown = true
-			
-#	elif event is InputEventMouseMotion:
-#		if (event.get_pressure() > 0) and thrown == false:
-#			print(translation)
-#			translation = Vector3(event.position[0], event.position[1], 0)
 			
 
 func _process(delta):
