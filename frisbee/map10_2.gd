@@ -16,3 +16,4 @@ func _on_GoalArea_body_entered(body):
 	
 	if name == "FrisbeeRigidBody":
 		print("GOAL!")
+		get_tree().change_scene("res://map10_3.tscn")

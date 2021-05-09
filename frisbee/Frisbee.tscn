@@ -27,11 +27,4 @@ shape = SubResource( 2 )
 
 [node name="frisbee" parent="FrisbeeRigidBody" instance=ExtResource( 2 )]
 
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108.699, -1.483, 0 )
-visible = false
-width = 246.096
-height = 0.325112
-depth = 183.828
-
 [connection signal="body_entered" from="FrisbeeRigidBody" to="FrisbeeRigidBody" method="_on_FrisbeeRigidBody_body_entered"]

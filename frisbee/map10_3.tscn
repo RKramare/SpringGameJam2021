@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Maps/map_10/map_10_7.JPG" type="Texture" id=1]
 [ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://bgControl.gd" type="Script" id=3]
+[ext_resource path="res://map10_3.gd" type="Script" id=4]
+[ext_resource path="res://Frisbee.tscn" type="PackedScene" id=5]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.465715, 1, 0.752336 )
+extents = Vector3( 0.465715, 1, 1.4185 )
 
 [sub_resource type="CylinderShape" id=4]
 radius = 1.01563
@@ -14,8 +16,9 @@ height = 2.21106
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.423529, 0.470588, 0.870588, 1 )
 
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 7.24376, 9.58552, 35.0726 )
+[sub_resource type="CylinderShape" id=14]
+radius = 0.460381
+height = 1.25803
 
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 2.64344, 15.4947, 22.8805 )
@@ -28,12 +31,14 @@ background_mode = 4
 ambient_light_color = Color( 1, 1, 1, 1 )
 
 [node name="map10_3" type="Spatial"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 4 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, -1.58402e-15, 1.05398e-14, 0, 0.988894, 0.148621, -1.06581e-14, -0.148621, 0.988894, -2.01823e-17, 0.0574145, -0.0018936 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 50, 1.05879e-22, 8.13152e-20, 2.03288e-20, 0.995154, -1.9666, -1.0842e-19, 0.0983298, 19.9031, -1.47734e-21, -5.59957, -0.994914 )
+transform = Transform( 50, -4.73147e-22, 8.13152e-20, 2.03288e-20, 0.988164, -3.068, -1.0842e-19, 0.1534, 19.7634, 4.96308e-24, -5.3395, -0.954541 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
@@ -55,22 +60,20 @@ far = 100000.0
 transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -37.6059, 63.8154, -132.386 )
 
 [node name="GoalArea" type="Area" parent="."]
-visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="GoalArea"]
-transform = Transform( 0.993429, 0, 0.114452, 0, 1, 0, -0.114452, 0, 0.993429, -8.50441, 4.82123, -65.0313 )
-shape = SubResource( 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.504035, -2.6586, -4.92755 )
+shape = SubResource( 14 )
 
 [node name="OutOfMapArea" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1959, 0, -21.0708 )
-visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="OutOfMapArea"]
-transform = Transform( 0.998633, 0, 0.0522662, 0, 1, 0, -0.0522662, 0, 0.998633, 2.09258, 0.849823, -0.11446 )
+transform = Transform( 0.676979, 0, -0.736003, 0, 1, 0, 0.736003, 0, 0.676979, 3.40498, -3.1322, 12.5449 )
 shape = SubResource( 11 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="OutOfMapArea"]
-transform = Transform( 0.99038, 0, 0.138378, 0, 1, 0, -0.138378, 0, 0.99038, 23.9884, 0, 0 )
+transform = Transform( 0.672948, 0, 0.73969, 0, 1, 0, -0.73969, 0, 0.672948, 27.9967, 0, 14.0184 )
 shape = SubResource( 12 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 2 )]
@@ -87,3 +90,9 @@ __meta__ = {
 [node name="bgSprite" type="Sprite" parent="WorldEnvironment/bgControl2"]
 position = Vector2( 2020.44, 1511.47 )
 texture = ExtResource( 1 )
+
+[node name="Frisbee" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.823e-10, -3.51692, -0.00645828 )
+
+[connection signal="body_entered" from="GoalArea" to="." method="_on_GoalArea_body_entered"]
+[connection signal="body_entered" from="OutOfMapArea" to="." method="_on_OutOfMapArea_body_entered"]
