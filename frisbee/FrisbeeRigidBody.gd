@@ -6,7 +6,7 @@ extends RigidBody
 # var b = "text"
 
 var thrown = false
-var max_force = 20
+var max_force = 15
 var impulse_force = max_force
 
 # Mouse logic variables
@@ -68,7 +68,7 @@ func _input(event):
 			start = event.position
 			start_time = elapsed_time
 			print("THUD")
-			var thud = self.get_parent().get_parent().get_node("Maps").get_node("thud")
+			var thud = self.get_parent().get_parent().get_node("thud")
 			thud.play()
 			yield(thud, "finished")
 			

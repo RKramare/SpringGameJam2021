@@ -23,4 +23,4 @@ func _ready():
 
 
 func _on_btnStartGame_button_up():
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://map10_1.tscn")

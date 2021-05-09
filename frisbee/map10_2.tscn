@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bgControl.gd" type="Script" id=2]
 [ext_resource path="res://Maps/map_10/map_10_3.JPG" type="Texture" id=3]
 [ext_resource path="res://map10_2.gd" type="Script" id=4]
-[ext_resource path="res://frisbee_land.wav" type="AudioStream" id=5]
+[ext_resource path="res://Frisbee.tscn" type="PackedScene" id=5]
+[ext_resource path="res://frisbee_land.wav" type="AudioStream" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.465715, 1, 0.252273 )
@@ -50,6 +51,7 @@ background_mode = 4
 ambient_light_color = Color( 1, 1, 1, 1 )
 
 [node name="map10_2" type="Spatial"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 4 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
@@ -72,6 +74,7 @@ transform = Transform( 0.37915, -1.11504e-21, 2.5411e-21, -1.32349e-21, 0.461192
 shape = SubResource( 4 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape3"]
+visible = false
 height = 2.25291
 material = SubResource( 5 )
 
@@ -81,6 +84,7 @@ shape = SubResource( 6 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape4"]
 transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+visible = false
 height = 5.72689
 
 [node name="CollisionShape10" type="CollisionShape" parent="StaticBody"]
@@ -89,6 +93,7 @@ shape = SubResource( 6 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape10"]
 transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+visible = false
 height = 5.72689
 
 [node name="CollisionShape11" type="CollisionShape" parent="StaticBody"]
@@ -97,6 +102,7 @@ shape = SubResource( 6 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape11"]
 transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+visible = false
 height = 5.72689
 
 [node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
@@ -104,6 +110,7 @@ transform = Transform( 0.154852, -0.0390472, -0.000962753, 0.00497476, 1.18323, 
 shape = SubResource( 7 )
 
 [node name="CSGBox" type="CSGBox" parent="StaticBody/CollisionShape7"]
+visible = false
 width = 14.2702
 height = 1.18402
 depth = 7.47475
@@ -113,6 +120,7 @@ transform = Transform( 0.106732, -0.0319745, -0.00103245, 0.00342887, 0.96891, -
 shape = SubResource( 8 )
 
 [node name="CSGBox" type="CSGBox" parent="StaticBody/CollisionShape9"]
+visible = false
 width = 14.2702
 height = 1.18402
 depth = 7.47475
@@ -123,6 +131,7 @@ shape = SubResource( 6 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape6"]
 transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+visible = false
 height = 5.72689
 
 [node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
@@ -131,6 +140,7 @@ shape = SubResource( 9 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape8"]
 transform = Transform( 1, 0, 0, -5.29396e-23, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
+visible = false
 height = 5.72689
 
 [node name="map10fspy" type="Camera" parent="."]
@@ -175,8 +185,11 @@ __meta__ = {
 position = Vector2( 2020.44, 1511.47 )
 texture = ExtResource( 3 )
 
+[node name="Frisbee" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.00394, 0 )
+
 [node name="thud" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = 22.061
 
 [connection signal="body_entered" from="GoalArea" to="." method="_on_GoalArea_body_entered"]
