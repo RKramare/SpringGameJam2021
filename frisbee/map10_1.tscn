@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://map10.dae" type="PackedScene" id=2]
+[ext_resource path="res://Maps/map_10/map_10_0.JPG" type="Texture" id=3]
+[ext_resource path="res://bgControl.gd" type="Script" id=4]
+[ext_resource path="res://map10_1.gd" type="Script" id=5]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.465715, 1, 0.203673 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.465867, 1, 0.202704 )
+
+[sub_resource type="CylinderShape" id=3]
+height = 0.59511
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 4.21448, 10.4798, 54.8799 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 5.6557, 10.2313, 58.6001 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 4
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 11.9599, 9.58552, 35.0726 )
+
+[node name="map10_1" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, 0, 0, 0, 0.997564, 1.39513, 0, -0.0697565, 19.9513, 0, -0.176131, -0.64162 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, 0, 0, 0, 0.995376, 11.5265, 0, -0.0960542, 119.445, 0, -2.76754, -29.0431 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 120, 0, -5.00066, -77.5613 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.168207, 0, 0, 0, 100, 0, 0, 0, 0.1, -1.962, 1.104, -4.978 )
+shape = SubResource( 3 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape4"]
+transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0.0600014, 0.140507, 0.150005 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.1, 0, 0, 0, 100, 0, 0, 0, 0.1, -2.04757, -5.06878, -65.4213 )
+shape = SubResource( 3 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape5"]
+transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0.0600014, 0.140507, 0.150005 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.099881, 4.878, 0, -0.004878, 99.881, 0, 0, 0, 0.1, -5.62834, -3.58219, -51.5593 )
+shape = SubResource( 3 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="StaticBody/CollisionShape6"]
+transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0.0600014, 0.140507, 0.150005 )
+
+[node name="OutOfMapArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="OutOfMapArea"]
+transform = Transform( 0.973443, 0, -0.228929, 0, 1, 0, 0.228929, 0, 0.973443, -13.3382, 0, -63.6115 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="OutOfMapArea"]
+transform = Transform( 0.972468, -0.062705, 0.224442, 0.0599992, 0.99802, 0.0188628, -0.22518, -0.00487717, 0.974305, 6.81491, 5.34891, -51.0516 )
+shape = SubResource( 7 )
+
+[node name="map10fspy" type="Camera" parent="."]
+transform = Transform( 0.999243, -0.0224428, 0.0317922, 0.0105135, 0.94226, 0.334718, -0.0374685, -0.33413, 0.941782, -0.0844203, 1.57435, 1.25319 )
+current = true
+fov = 65.638
+near = 0.1
+far = 100000.0
+
+[node name="map10" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6059, 63.8154, -132.386 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 1 )]
+environment = SubResource( 5 )
+
+[node name="bgControl2" type="Control" parent="WorldEnvironment"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bgSprite" type="Sprite" parent="WorldEnvironment/bgControl2"]
+position = Vector2( 2020.44, 1511.47 )
+texture = ExtResource( 3 )
+
+[node name="GoalArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="GoalArea"]
+transform = Transform( 0.999968, 0, 0.00794116, 0, 1, 0, -0.00794116, 0, 0.999968, -1.19823, 3.73393, -85.3588 )
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="OutOfMapArea" to="." method="_on_OutOfMapArea_body_entered"]
+[connection signal="body_entered" from="GoalArea" to="." method="_on_GoalArea_body_entered"]
